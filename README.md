@@ -61,8 +61,8 @@ The system uses machine learning algorithms to analyze transaction patterns and 
 2. **Google Colab - Random Forest Classifier**
    * <img width="851" height="830" alt="image" src="https://github.com/user-attachments/assets/e4d3e09c-c546-41dd-876a-16440a44d621" />
    * Correlation between features: <img width="774" height="652" alt="image" src="https://github.com/user-attachments/assets/1e81004a-f804-417b-8d6a-8c2d4d744193" />
-3. **Video:** https://drive.google.com/file/d/1p_A5l3-YYjYnrSeCLaotxbYlMJ9U2GwC/view?usp=sharing
-Confusion matrix confirms effective classification, though recall highlights missed fraud cases.
+3. **Azure Machine Learning Designer Video:** https://drive.google.com/file/d/1p_A5l3-YYjYnrSeCLaotxbYlMJ9U2GwC/view?usp=sharing
+   * Confusion matrix confirms effective classification, though recall highlights missed fraud cases.
 
 ### **✅ Conclusion**
 The project demonstrates the successful application of machine learning for fraud detection. While accuracy is high, recall indicates the need for further improvement to capture more fraudulent cases. 
