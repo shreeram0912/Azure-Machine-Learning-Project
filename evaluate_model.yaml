@@ -1,0 +1,51 @@
+amlModuleIdentifier:
+  namespace: azureml
+  moduleName: Evaluate Model
+  moduleVersion: 0.0.192
+meta:
+  collectLogs: true
+metadata:
+  annotations:
+    tags: []
+    familyId: 927d65ac-3b50-4694-9903-20f6c1672089
+    contact: Microsoft Corporation
+    helpDocument: https://aka.ms/aml/evaluate-model
+category: Model Scoring & Evaluation
+description: Evaluates the results of a classification or regression model with standard
+  metrics.
+isDeterministic: true
+inputs:
+- name: Scored dataset
+  type: DataFrameDirectory
+  description: Scored dataset
+- name: Scored dataset to compare
+  type: DataFrameDirectory
+  optional: true
+  description: Scored dataset to compare (optional)
+outputs:
+- name: Evaluation results
+  type: DataFrameDirectory
+  description: Data evaluation result
+implementation:
+  container:
+    amlEnvironment:
+      name: AzureML-Designer
+      version: '89'
+    command:
+    - python
+    - invoker.py
+    - python
+    - -m
+    - azureml.studio.modulehost.module_invoker
+    - --module-name=azureml.studio.modules.ml.evaluate.evaluate_generic_module.evaluate_generic_module
+    args:
+    - --scored-dataset
+    - inputPath: Scored dataset
+    - - --scored-dataset-to-compare
+      - inputPath: Scored dataset to compare
+    - --evaluation-results
+    - outputPath: Evaluation results
+  servingEntry:
+    module: azureml.studio.modules.ml.evaluate.evaluate_generic_module.evaluate_generic_module
+    class: EvaluateModelModule
+    func: run
