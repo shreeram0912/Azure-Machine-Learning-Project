@@ -1,0 +1,409 @@
+{
+    "runId": "44595fb8-608f-4dad-832b-e85418920de1",
+    "runUuid": "5e47a089-dc80-47f3-8207-475512d633d5",
+    "parentRunUuid": "928d6d5c-33ba-435b-b224-2eab740e8080",
+    "rootRunUuid": "928d6d5c-33ba-435b-b224-2eab740e8080",
+    "target": "AzureMachineLearningCompute",
+    "status": "Completed",
+    "parentRunId": "f131df19-0674-4058-836c-ca184ebbca13",
+    "dataContainerId": "dcid.44595fb8-608f-4dad-832b-e85418920de1",
+    "createdTimeUtc": "2026-02-13T20:54:20.422412+00:00",
+    "startTimeUtc": "2026-02-13T20:54:47.035Z",
+    "endTimeUtc": "2026-02-13T20:55:48.190Z",
+    "error": null,
+    "warnings": null,
+    "tags": {
+        "azureml.nodeid": "7953f7a9",
+        "azureml.pipeline": "f131df19-0674-4058-836c-ca184ebbca13",
+        "_aml_system_ComputeTargetStatus": "{\"AllocationState\":\"steady\",\"PreparingNodeCount\":0,\"RunningNodeCount\":1,\"CurrentNodeCount\":1}"
+    },
+    "properties": {
+        "ContentSnapshotId": "3b8e3825-5ffd-4724-b99e-3d335f114156",
+        "StepType": "PythonScriptStep",
+        "ComputeTargetType": "AmlCompute",
+        "azureml.moduleid": "6ca27f30-51d9-5ec7-9729-26c9c23d2358",
+        "azureml.moduleFamilyId": "927d65ac-3b50-4694-9903-20f6c1672089",
+        "azureml.moduleName": "azureml://Evaluate Model",
+        "azureml.moduleVersion": "0.0.192",
+        "azureml.runsource": "azureml.StepRun",
+        "azureml.nodeid": "7953f7a9",
+        "azureml.pipelinerunid": "f131df19-0674-4058-836c-ca184ebbca13",
+        "azureml.pipeline": "f131df19-0674-4058-836c-ca184ebbca13",
+        "azureml.rootpipelinerunid": "f131df19-0674-4058-836c-ca184ebbca13",
+        "azureml.pipelineComponent": "masterescloud",
+        "_azureml.ComputeTargetType": "amlctrain",
+        "_azureml.ClusterName": "AzureMachineLearningCompute",
+        "ProcessInfoFile": "azureml-logs/process_info.json",
+        "ProcessStatusFile": "azureml-logs/process_status.json"
+    },
+    "parameters": {},
+    "services": {},
+    "inputDatasets": [
+        {
+            "identifier": {
+                "savedId": "63415729-9840-4b74-9642-5bdeaf5867ae",
+                "registeredId": null,
+                "registeredVersion": null
+            },
+            "consumptionType": "RunInput",
+            "inputDetails": {
+                "inputName": "Scored_dataset",
+                "mechanism": "Mount",
+                "pathOnCompute": null
+            }
+        }
+    ],
+    "outputDatasets": [
+        {
+            "identifier": {
+                "savedId": "3ba3f5c4-c6de-4cf9-a8b0-263024989722",
+                "registeredId": null,
+                "registeredVersion": null
+            },
+            "outputType": "RunOutput",
+            "outputDetails": {
+                "outputName": "Evaluation_results"
+            }
+        }
+    ],
+    "runDefinition": {
+        "script": "urldecode_invoker.py",
+        "useAbsolutePath": false,
+        "arguments": [
+            "python",
+            "-m",
+            "azureml.studio.modulehost.module_invoker",
+            "--module-name=azureml.studio.modules.ml.evaluate.evaluate_generic_module.evaluate_generic_module",
+            "--evaluation-results",
+            "DatasetOutputConfig:Evaluation_results",
+            "--scored-dataset=$AZUREML_DATAREFERENCE_Scored_dataset"
+        ],
+        "sourceDirectoryDataStore": null,
+        "framework": "Python",
+        "communicator": "None",
+        "target": "AzureMachineLearningCompute",
+        "dataReferences": {},
+        "data": {
+            "Scored_dataset": {
+                "dataLocation": {
+                    "dataset": {
+                        "id": "63415729-9840-4b74-9642-5bdeaf5867ae",
+                        "name": null,
+                        "version": null
+                    },
+                    "dataPath": null,
+                    "uri": null,
+                    "type": null
+                },
+                "mechanism": "Mount",
+                "environmentVariableName": "Scored_dataset",
+                "pathOnCompute": null,
+                "overwrite": true,
+                "options": null
+            }
+        },
+        "outputData": {
+            "Evaluation_results": {
+                "outputLocation": {
+                    "dataset": null,
+                    "dataPath": {
+                        "datastoreName": "workspaceblobstore",
+                        "relativePath": "azureml/{run-id}/{output-name}"
+                    },
+                    "uri": null,
+                    "type": null
+                },
+                "mechanism": "Upload",
+                "additionalOptions": {
+                    "pathOnCompute": null,
+                    "registrationOptions": {
+                        "name": null,
+                        "description": null,
+                        "tags": null,
+                        "properties": {
+                            "azureml.pipelineRunId": "f131df19-0674-4058-836c-ca184ebbca13",
+                            "azureml.pipelineRun.moduleNodeId": "7953f7a9",
+                            "azureml.pipelineRun.outputPortName": "Evaluation_results"
+                        },
+                        "datasetRegistrationOptions": {
+                            "additionalTransformation": null
+                        }
+                    },
+                    "uploadOptions": {
+                        "overwrite": true,
+                        "sourceGlobs": {
+                            "globPatterns": null
+                        }
+                    },
+                    "mountOptions": null
+                },
+                "environmentVariableName": null
+            }
+        },
+        "datacaches": [],
+        "jobName": null,
+        "maxRunDurationSeconds": null,
+        "nodeCount": 1,
+        "instanceTypes": [],
+        "priority": null,
+        "credentialPassthrough": false,
+        "identity": null,
+        "environment": {
+            "name": "AzureML-Designer",
+            "version": "89",
+            "assetId": "azureml://registries/azureml/environments/AzureML-Designer/versions/89",
+            "autoRebuild": true,
+            "python": {
+                "interpreterPath": "python",
+                "userManagedDependencies": false,
+                "condaDependencies": {
+                    "channels": [
+                        "conda-forge"
+                    ],
+                    "dependencies": [
+                        "pip=20.2",
+                        "python=3.8.10",
+                        "scikit-surprise=1.1.0",
+                        {
+                            "pip": [
+                                "azureml-designer-classic-modules==0.0.182",
+                                "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz#egg=en_core_web_sm",
+                                "spacy==2.1.7",
+                                "joblib==1.2.0",
+                                "setuptools==65.5.1",
+                                "wheel==0.38.1",
+                                "numpy==1.22",
+                                "cryptography==42.0.4",
+                                "azureml-dataprep==4.10.1",
+                                "matplotlib==3.7.1",
+                                "Werkzeug==2.2.3",
+                                "pip==21.1",
+                                "requests==2.31.0",
+                                "scipy==1.10.0",
+                                "paramiko==3.4.0",
+                                "azure-storage-blob==12.13.0",
+                                "urllib3==1.26.18",
+                                "Pillow==10.2.0",
+                                "pyarrow==14.0.1",
+                                "pycryptodome==3.19.1",
+                                "pycryptodomex==3.19.1"
+                            ]
+                        }
+                    ],
+                    "name": "project_environment"
+                },
+                "baseCondaEnvironment": null
+            },
+            "environmentVariables": {
+                "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+            },
+            "docker": {
+                "baseImage": "mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:20240418.v1",
+                "platform": {
+                    "os": "Linux",
+                    "architecture": "amd64"
+                },
+                "baseDockerfile": null,
+                "baseImageRegistry": {
+                    "address": null,
+                    "username": null,
+                    "password": null
+                },
+                "enabled": false,
+                "arguments": []
+            },
+            "spark": {
+                "repositories": [],
+                "packages": [],
+                "precachePackages": false
+            },
+            "inferencingStackVersion": null
+        },
+        "history": {
+            "outputCollection": true,
+            "directoriesToWatch": [
+                "logs"
+            ],
+            "enableMLflowTracking": false
+        },
+        "spark": {
+            "configuration": {}
+        },
+        "parallelTask": {
+            "maxRetriesPerWorker": 0,
+            "workerCountPerNode": 1,
+            "terminalExitCodes": null,
+            "configuration": {}
+        },
+        "amlCompute": {
+            "name": null,
+            "vmSize": null,
+            "retainCluster": false,
+            "clusterMaxNodeCount": 1
+        },
+        "aiSuperComputer": {
+            "instanceType": "D2",
+            "imageVersion": "pytorch-1.7.0",
+            "location": null,
+            "aiSuperComputerStorageData": null,
+            "interactive": false,
+            "scalePolicy": null,
+            "virtualClusterArmId": null,
+            "tensorboardLogDirectory": null,
+            "sshPublicKey": null,
+            "sshPublicKeys": null,
+            "enableAzmlInt": true,
+            "priority": "Medium",
+            "slaTier": "Standard",
+            "userAlias": null
+        },
+        "kubernetesCompute": {
+            "instanceType": null
+        },
+        "tensorflow": {
+            "workerCount": 0,
+            "parameterServerCount": 0
+        },
+        "mpi": {
+            "processCountPerNode": 1
+        },
+        "pyTorch": {
+            "communicationBackend": null,
+            "processCount": null
+        },
+        "hdi": {
+            "yarnDeployMode": "None"
+        },
+        "containerInstance": {
+            "region": null,
+            "cpuCores": 2,
+            "memoryGb": 3.5
+        },
+        "exposedPorts": null,
+        "docker": {
+            "useDocker": true,
+            "sharedVolumes": true,
+            "shmSize": "2g",
+            "arguments": []
+        },
+        "cmk8sCompute": {
+            "configuration": {}
+        },
+        "globalJobDispatcher": {
+            "myResourceOnly": false,
+            "lowPriorityVMTolerant": true
+        },
+        "commandReturnCodeConfig": {
+            "returnCode": "Zero",
+            "successfulReturnCodes": []
+        },
+        "environmentVariables": {
+            "AZUREML_PARAMETER_Node_Count": "1"
+        },
+        "applicationEndpoints": {},
+        "parameters": [],
+        "dataBricks": {
+            "workers": 0,
+            "minimumWorkerCount": 0,
+            "maxMumWorkerCount": 0,
+            "sparkVersion": "4.0.x-scala2.11",
+            "nodeTypeId": "Standard_D3_v2",
+            "sparkConf": {},
+            "sparkEnvVars": {},
+            "instancePoolId": null,
+            "timeoutSeconds": 0,
+            "jarLibraries": [],
+            "eggLibraries": [],
+            "whlLibraries": [],
+            "pypiLibraries": [],
+            "rCranLibraries": [],
+            "mavenLibraries": [],
+            "linkedADBWorkspaceMetadata": null,
+            "databrickResourceId": null,
+            "autoScale": false
+        },
+        "componentConfiguration": {
+            "componentIdentifier": "azureml:/subscriptions/6717d4f6-3a6e-4188-b2b8-d91c4de6e2e4/resourceGroups/AzureMachineLearning_RG/providers/Microsoft.MachineLearningServices/workspaces/AzureMachineLearning_WS/id/3f391cf0-5ebd-45d6-a6fc-e5eb8f1f39d3/components/id/6ca27f30-51d9-5ec7-9729-26c9c23d2358"
+        }
+    },
+    "logFiles": {
+        "logs/azureml/executionlogs.txt": "https://azuremachinele9743365912.blob.core.windows.net/azureml/ExperimentRun/dcid.44595fb8-608f-4dad-832b-e85418920de1/logs/azureml/executionlogs.txt?sv=2019-07-07&sr=b&sig=rgA01OTcwqb2iWuTdxJ54PnYx%2F1FcXpq85YNMDRLt0c%3D&skoid=d8dc2d4e-294e-475e-babe-02246f4d1115&sktid=cde94195-18ae-421b-b772-b3b6a96f00cc&skt=2026-02-13T20%3A31%3A58Z&ske=2026-02-15T20%3A41%3A58Z&sks=b&skv=2019-07-07&st=2026-02-13T21%3A28%3A12Z&se=2026-02-14T05%3A38%3A12Z&sp=r",
+        "logs/azureml/stderrlogs.txt": "https://azuremachinele9743365912.blob.core.windows.net/azureml/ExperimentRun/dcid.44595fb8-608f-4dad-832b-e85418920de1/logs/azureml/stderrlogs.txt?sv=2019-07-07&sr=b&sig=iHwxkUcmgftGc4cgJU6sTV0jzAC4nutS9iTBhApE%2FFw%3D&skoid=d8dc2d4e-294e-475e-babe-02246f4d1115&sktid=cde94195-18ae-421b-b772-b3b6a96f00cc&skt=2026-02-13T20%3A31%3A58Z&ske=2026-02-15T20%3A41%3A58Z&sks=b&skv=2019-07-07&st=2026-02-13T21%3A28%3A12Z&se=2026-02-14T05%3A38%3A12Z&sp=r",
+        "logs/azureml/stdoutlogs.txt": "https://azuremachinele9743365912.blob.core.windows.net/azureml/ExperimentRun/dcid.44595fb8-608f-4dad-832b-e85418920de1/logs/azureml/stdoutlogs.txt?sv=2019-07-07&sr=b&sig=QLXsBZzOrqzXyYSxltI5hU0zz3RAaJDBaDr%2FSJ5neu8%3D&skoid=d8dc2d4e-294e-475e-babe-02246f4d1115&sktid=cde94195-18ae-421b-b772-b3b6a96f00cc&skt=2026-02-13T20%3A31%3A58Z&ske=2026-02-15T20%3A41%3A58Z&sks=b&skv=2019-07-07&st=2026-02-13T21%3A28%3A12Z&se=2026-02-14T05%3A38%3A12Z&sp=r"
+    },
+    "jobCost": {
+        "chargedCpuCoreSeconds": 236,
+        "chargedCpuMemoryMegabyteSeconds": null,
+        "chargedGpuSeconds": null,
+        "chargedNodeUtilizationSeconds": 6115.59336
+    },
+    "revision": 14,
+    "runTypeV2": {
+        "orchestrator": "Execution",
+        "traits": [
+            "azureml.StepRun",
+            "scriptRun",
+            "remote",
+            "AlmostCommonRuntime",
+            "OsType:Linux",
+            "CommonRuntime"
+        ],
+        "attribution": "Designer",
+        "computeType": "AmlcTrain"
+    },
+    "settings": {},
+    "computeRequest": {
+        "nodeCount": 1,
+        "gpuCount": 0
+    },
+    "compute": {
+        "target": "AzureMachineLearningCompute",
+        "targetType": "amlcompute",
+        "vmSize": null,
+        "instanceType": null,
+        "instanceCount": 1,
+        "gpuCount": 0,
+        "priority": null,
+        "region": null,
+        "armId": null,
+        "properties": null
+    },
+    "createdBy": {
+        "userObjectId": "26313911-9f64-4394-83e9-5deed95b5ff3",
+        "userPuId": "10032005835B0C3E",
+        "userIdp": "live.com",
+        "userAltSecId": "1:live.com:00037FFE3947A35F",
+        "userIss": "https://sts.windows.net/cde94195-18ae-421b-b772-b3b6a96f00cc/",
+        "userTenantId": "cde94195-18ae-421b-b772-b3b6a96f00cc",
+        "userName": "Shreeram Prajapati",
+        "upn": null,
+        "clientApplicationId": null,
+        "applicationACR": null
+    },
+    "computeDuration": "00:01:01.1559336",
+    "effectiveStartTimeUtc": null,
+    "runNumber": 1771016060,
+    "rootRunId": "f131df19-0674-4058-836c-ca184ebbca13",
+    "experimentId": "37876260-fd52-4f3a-911a-10ca12617142",
+    "userId": "26313911-9f64-4394-83e9-5deed95b5ff3",
+    "statusRevision": 6,
+    "currentComputeTime": null,
+    "lastStartTimeUtc": null,
+    "lastModifiedBy": {
+        "userObjectId": "26313911-9f64-4394-83e9-5deed95b5ff3",
+        "userPuId": "10032005835B0C3E",
+        "userIdp": "live.com",
+        "userAltSecId": "1:live.com:00037FFE3947A35F",
+        "userIss": "azureml",
+        "userTenantId": "cde94195-18ae-421b-b772-b3b6a96f00cc",
+        "userName": "Shreeram Prajapati",
+        "upn": null,
+        "clientApplicationId": "Shreeram Prajapati",
+        "applicationACR": null
+    },
+    "lastModifiedUtc": "2026-02-13T20:55:39.0014628+00:00",
+    "duration": "00:01:01.1559336",
+    "inputs": null,
+    "outputs": null,
+    "currentAttemptId": 1
+}
